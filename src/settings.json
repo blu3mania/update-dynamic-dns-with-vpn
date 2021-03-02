@@ -1,0 +1,16 @@
+{
+    "networkInterface": "Local Area Connection",
+    "addressFamily": "IPv4",
+    "dnsProvider": "Dynu",
+    "domainName": "xxx.theworkpc.com",
+    "domainID": "",
+    "accessKey": "xxxxxx",
+    "showNotification": false,
+    "notificationTypes": [
+        "DNS Registration",
+        "Scheduled DNS Registration",
+        "IP Changed",
+        "IP Assigned",
+        "IP Removed"
+    ]
+}
