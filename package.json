@@ -1,11 +1,11 @@
 {
   "name": "update-dynamic-dns-with-vpn",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Automatically update a dynamic DNS registration based on a given network interface, such as VPN",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "install": "node src/install-service.js",
+    "postinstall": "node src/install-service.js",
     "uninstall": "node src/uninstall-service.js",
     "show": "node src/show-interfaces.js"
   },
@@ -13,11 +13,13 @@
     "showip": "src/show-interfaces.js"
   },
   "keywords": [
-    "dynamic",
     "dns",
-    "dynamic-dns",
-    "network-interface",
-    "vpn"
+    "dynamic dns",
+    "vpn",
+    "network",
+    "network interface",
+    "network interface monitor",
+    "windows"
   ],
   "author": "blu3mania <blu3mania@hotmail.com>",
   "license": "Apache-2.0",
@@ -33,13 +35,10 @@
     "win32"
   ],
   "dependencies": {
-    "chalk": "^4.1.0",
-    "ffi-napi": "^3.1.0",
-    "node-notifier": "^9.0.0",
-    "node-windows": "^1.0.0-beta.5"
+    "chalk": "^4.1.2",
+    "ffi-napi": "^4.0.3",
+    "node-notifier": "^10.0.1",
+    "node-windows": "^1.0.0-beta.8"
   },
-  "devDependencies": {},
-  "resolutions": {
-    "**/minimist": "^1.2.5"
-  }
+  "devDependencies": {}
 }
