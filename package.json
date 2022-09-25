@@ -1,8 +1,9 @@
 {
   "name": "update-dynamic-dns-with-vpn",
-  "version": "1.1.0",
+  "type": "module",
+  "version": "2.0.0",
   "description": "Automatically update a dynamic DNS registration based on a given network interface, such as VPN",
-  "main": "src/app.js",
+  "exports": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
     "postinstall": "node src/install-service.js",
@@ -18,7 +19,7 @@
     "vpn",
     "network",
     "network interface",
-    "network interface monitor",
+    "monitor",
     "windows"
   ],
   "author": "blu3mania <blu3mania@hotmail.com>",
@@ -31,11 +32,14 @@
     "type": "git",
     "url": "https://github.com/blu3mania/update-dynamic-dns-with-vpn.git"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "os": [
     "win32"
   ],
   "dependencies": {
-    "chalk": "^4.1.2",
+    "chalk": "^5.0.1",
     "ffi-napi": "^4.0.3",
     "node-notifier": "^10.0.1",
     "node-windows": "^1.0.0-beta.8"

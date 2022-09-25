@@ -1,10 +1,8 @@
-'use strict';
-
-const http = require('http');
-const https = require('https');
-const os = require('os');
-//const print = require('./print.js');
-const packageJson = require('../package.json');
+import http from 'http';
+import https from 'https';
+import os from 'os';
+//import { print } from './print.js';
+import packageJson from '../package.json' assert {type: 'json'};
 
 const Vendor = {
     Dynu: 'dynu',
@@ -116,7 +114,7 @@ class DnsProvider {
         return new Promise((resolve, reject) => {
             // Provide User Agent if not already specified.
             if (!request.options.headers['User-Agent']) {
-                request.options.headers['User-Agent'] = `Update-Dynamic-DNS/${packageJson.version} (${os.platform()} ${os.release()}) ${packageJson.author}`;
+                request.options.headers['User-Agent'] = `${packageJson.name}/${packageJson.version} (${os.platform()} ${os.release()}) ${packageJson.author}`;
             }
 
             // Make sure Content-Length is provided when sending data.
@@ -261,7 +259,7 @@ class NoIP extends BasicAuthorizationDnsProvider {
     }
 }
 
-module.exports = {
+export {
     DnsProvider,
     Dynu,
     FreeDNS,

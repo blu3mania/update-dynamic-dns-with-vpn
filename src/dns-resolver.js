@@ -1,6 +1,4 @@
-'use strict';
-
-const dns = require('dns');
+import dns from 'dns';
 
 // Use Google, Cloudflare, and Quad9 DNS servers
 dns.setServers([
@@ -11,7 +9,7 @@ dns.setServers([
     '9.9.9.9',
 ]);
 
-class DnsResolver {
+export default class DnsResolver {
     constructor(host) {
         this.host = host;
     }
@@ -25,7 +23,7 @@ class DnsResolver {
                 const records = await dns.promises.resolve(this.host, addressFamily === 'IPv6' ? 'AAAA' : 'A')
                     .catch((error) => {
                         // dns.resolve errors with ENODATA if the AAAA (for IPv6) or A (for IPv4) record does not exist.
-                        // THough, if dns.lookup is used, it errors with ENOTFOUND when the OS does not have this info.
+                        // If dns.lookup is used, it errors with ENOTFOUND when the OS does not have the domain's info.
                         if (error.code === 'ENODATA' || error.code === 'ENOTFOUND') {
                             // Domain name not registered
                             resolve(null);
@@ -53,5 +51,3 @@ class DnsResolver {
         });
     }
 }
-
-module.exports = DnsResolver;

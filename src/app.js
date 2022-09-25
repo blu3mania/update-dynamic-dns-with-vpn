@@ -1,22 +1,22 @@
-'use strict';
+import * as url from 'url';
+import path from 'path';
+import notifier from 'node-notifier';
 
-const path = require('path');
-const notifier = require('node-notifier');
-const {
+import {
     error,
     warning,
     info,
-    verbose } = require('./print.js');
-const DnsResolver = require('./dns-resolver.js');
-const NetworkInterfaceMonitor = require('./network-interface-monitor.js');
-const {
+    verbose } from './print.js';
+import DnsResolver from './dns-resolver.js';
+import NetworkInterfaceMonitor from './network-interface-monitor.js';
+import {
     DnsProvider,
     Dynu,
     FreeDNS,
     DuckDNS,
     YDNS,
-    NoIP } = require('./dns-provider.js');
-const settings = require('./settings.json');
+    NoIP } from './dns-provider.js';
+import settings from './settings.json' assert {type: 'json'};
 
 const NotificationType = {
     DnsRegistration: 'dns registration',
@@ -25,6 +25,8 @@ const NotificationType = {
     IpAssigned: 'ip assigned',
     IpRemoved: 'ip removed',
 };
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 let dnsProvider = null;
 let currentRegisteredIP = null;

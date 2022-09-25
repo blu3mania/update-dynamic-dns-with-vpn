@@ -1,4 +1,7 @@
 {
+    "service": {
+        "name": "Update Dynamic DNS"
+    },
     "networkInterface": "Local Area Connection",
     "addressFamily": "IPv4",
     "dnsProvider": "Dynu",

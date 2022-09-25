@@ -1,14 +1,17 @@
 # update-dynamic-dns-with-vpn
 [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-yellow)](https://raw.githubusercontent.com/blu3mania/update-dynamic-dns-with-vpn/main/LICENSE)
-[![node.js 10+](https://img.shields.io/badge/node.js-10.16.3-blue?logo=node.js)](https://nodejs.org/en/)
+[![node.js 16+](https://img.shields.io/badge/node.js-16.0.0-blue?logo=node.js)](https://nodejs.org/en/)
 [![Latest Release](https://img.shields.io/github/v/release/blu3mania/update-dynamic-dns-with-vpn)](https://github.com/blu3mania/update-dynamic-dns-with-vpn/releases/latest)
 
-Auto update a dynamic DNS registration based on a given network interface, such as VPN. **Note**, it does
-not update dynamic DNS with your public IP. If that's what you are looking for, there are already many other
-apps doing just that.
+Automatically update a dynamic DNS registration based on a given network interface, such as VPN. **Note**,
+it does not update dynamic DNS with your public IP. If that's what you are looking for, there are already
+many other apps doing just that.
 
 It can be run as a standalone application or as a Windows service. When running in standalone mode, it can
 also be used to just monitor a network interface without auto DNS update.
+
+**Note**, this package is written as ES Module starting with 2.0. For CommonJS version, use version 1.x from
+CommonJS branch.
 
 ## Run these steps first:
 
@@ -23,6 +26,23 @@ also be used to just monitor a network interface without auto DNS update.
    Find the network interface you want to monitor, and note down the key to that interface, e.g. "Local Area
    Connection", "Wi-Fi".
 3. Edit src/settings.json.
+   * service defines service parameters when installed as Windows service:
+     * name is the service name to be used.
+     * account info is optional. If provided, the service will be running as the specified account. These properties
+       can be provided:
+       * name is account's name
+       * password is account's password
+       * domain is optional, and should be provided if the account is a domain account
+   ```
+    "service": {
+        "name": "Update Dynamic DNS",
+        "account": {
+            "name": "{account name}",
+            "password": "{account password}",
+            "domain": "{account domain}"
+        }
+    },
+   ```
    * networkInterface is the network interface you wrote down in the previous step.
    * addressFamily is the IP address family to monitor and register on dynamic DNS.
 
