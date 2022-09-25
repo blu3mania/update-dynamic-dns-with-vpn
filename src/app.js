@@ -1,5 +1,7 @@
-import * as url from 'url';
 import path from 'path';
+import url from 'url';
+
+import NetworkInterfaceMonitor from 'windows-network-interface-monitor';
 import notifier from 'node-notifier';
 
 import {
@@ -8,7 +10,6 @@ import {
     info,
     verbose } from './print.js';
 import DnsResolver from './dns-resolver.js';
-import NetworkInterfaceMonitor from './network-interface-monitor.js';
 import {
     DnsProvider,
     Dynu,

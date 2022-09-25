@@ -1,5 +1,6 @@
-import * as url from 'url';
 import path from 'path';
+import url from 'url';
+
 import { Service } from 'node-windows';
 
 import {
