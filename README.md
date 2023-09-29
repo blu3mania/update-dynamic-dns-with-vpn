@@ -15,9 +15,12 @@ CommonJS branch.
 
 ## Run these steps first:
 
-1. One of the packages, "ffi-napi", uses native modules and relies on "node-gyp" to build the project. As a
-   result, there are some prerequisites that need to be installed/configured. Please refer to [node-gyp's
-   instructions](https://github.com/nodejs/node-gyp#installation).
+1. One of the packages, "ffi-napi", uses native modules and relies on "node-gyp" to build the project if needed,
+   depending on whether a prebuilt binary exists or not. As a result, there may be some prerequisites that are
+   needed to be installed/configured. The recommendation is to try to install this package first, and if it ends
+   up building the native binary on the fly and node-gyp complains about something, then refer to
+   [node-gyp's instructions](https://github.com/nodejs/node-gyp#installation) to have those prerequisites installed.
+
 2. Run "npm run show \[addessFamily\]" or "node src/show-interfaces.js \[addessFamily\]".
 
    addessFamily is optional, which can be "ipv4" or "ipv6" if you only care about one type of IP address.
@@ -25,6 +28,7 @@ CommonJS branch.
 
    Find the network interface you want to monitor, and note down the key to that interface, e.g. "Local Area
    Connection", "Wi-Fi".
+
 3. Edit src/settings.json.
    * service defines service parameters when installed as Windows service:
      * name is the service name to be used.
@@ -68,6 +72,7 @@ CommonJS branch.
 
      Supported values are: "DNS Registration", "Scheduled DNS Registration", "IP Changed", "IP Assigned", "IP
      Removed".
+
 4. Run "npm install". Accept UAC prompts if any (there could be up to 4). "npm link" can be used as well,
    which will create a command "showip" that can be used as a shortcut to "src/show-interfaces.js".
 
