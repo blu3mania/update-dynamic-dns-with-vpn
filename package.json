@@ -1,7 +1,7 @@
 {
   "name": "update-dynamic-dns-with-vpn",
   "type": "module",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Automatically update a dynamic DNS registration based on a given network interface, such as VPN",
   "exports": "src/app.js",
   "scripts": {
