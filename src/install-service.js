@@ -7,7 +7,7 @@ import {
     warning,
     info,
     verbose } from './print.js';
-import settings from './settings.json' assert {type: 'json'};
+import settings from './settings.json' with {type: 'json'};
 
 main();
 

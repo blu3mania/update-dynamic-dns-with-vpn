@@ -17,7 +17,7 @@ import {
     DuckDNS,
     YDNS,
     NoIP } from './dns-provider.js';
-import settings from './settings.json' assert {type: 'json'};
+import settings from './settings.json' with {type: 'json'};
 
 const NotificationType = {
     DnsRegistration: 'dns registration',

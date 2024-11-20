@@ -3,7 +3,7 @@ import https from 'https';
 import os from 'os';
 
 //import { print } from './print.js';
-import packageJson from '../package.json' assert {type: 'json'};
+import packageJson from '../package.json' with {type: 'json'};
 
 const Vendor = {
     Dynu: 'dynu',
