@@ -39,7 +39,7 @@
     "win32"
   ],
   "dependencies": {
-    "chalk": "^5.0.1",
+    "chalk": "^6.0.0",
     "ffi-napi": "^4.0.3",
     "node-notifier": "^10.0.1",
     "node-windows": "^1.0.0-beta.8",
